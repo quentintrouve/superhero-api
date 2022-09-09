@@ -1,0 +1,82 @@
+// BUTTONS
+.card__button {
+  text-decoration: none;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $actionColor;
+  box-shadow: $boxShadow;
+  border-radius: $radius;
+  border: none;
+  font-family: $textFamily;
+  font-size: $textFontSize;
+  font-weight: $subtitleFontWeight;
+  color: $textColor;
+
+  &:active {
+    outline: none;
+    border: none;
+    transform: translateY(2px);
+  }
+
+  &:disabled {
+    background-color: darkgrey;
+  }
+}
+
+.mainButton {
+  width: 158px;
+  height: 40px;
+  padding: 0 8px;
+}
+
+.mainButton--card {
+  margin-top: 16px;
+}
+
+.search__button {
+  width: 40px;
+  height: 40px;
+}
+
+.header__button {
+  height: 32px;
+  margin-left: 20px;
+  padding: 0 8px;
+}
+
+.card__imgButton {
+  width: 24px;
+  height: 50px;
+  flex-direction: column;
+  position: absolute;
+  top: 43%;
+  right: -5%;
+}
+
+.is-add {
+  background: $textColor;
+  color: $actionColor;
+  border: 1px solid $actionColor;
+}
+
+// INPUT
+
+input {
+  width: 232px;
+  height: 40px;
+  padding: 16px;
+  background-color: $textColor;
+  border: $border;
+  box-shadow: $inputShadow;
+  border-radius: $radius;
+  outline: none;
+
+  &::placeholder {
+    font-family: $textFamily;
+    font-size: 10px;
+  }
+}

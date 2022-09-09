@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Super Hero</title>
+    <link rel="stylesheet" href="scss/styles.scss" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="js/script.ts"></script>
+  </head>
+  <body>
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;">
+      <defs>
+        <symbol
+          id="icon-twitter"
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          fill="none"
+        >
+          <path
+            d="M29.5493 8.87467C28.5314 9.32493 27.4519 9.62064 26.3467 9.752C27.5117 9.05525 28.3836 7.95869 28.8 6.66667C27.7067 7.31734 26.508 7.77334 25.2587 8.02C24.4195 7.12211 23.3071 6.52662 22.0946 6.32612C20.8821 6.12561 19.6372 6.33133 18.5537 6.91127C17.4701 7.49122 16.6085 8.41292 16.1028 9.53306C15.5971 10.6532 15.4757 11.909 15.7573 13.1053C13.5401 12.9942 11.3711 12.418 9.39104 11.4142C7.41098 10.4104 5.66416 9.0014 4.26399 7.27867C3.76838 8.12994 3.50793 9.09764 3.50933 10.0827C3.50933 12.016 4.49333 13.724 5.98933 14.724C5.10401 14.6961 4.23817 14.457 3.46399 14.0267V14.096C3.46426 15.3836 3.90982 16.6315 4.72512 17.6281C5.54043 18.6247 6.6753 19.3086 7.93733 19.564C7.11548 19.7867 6.25374 19.8195 5.41733 19.66C5.77315 20.7683 6.46667 21.7376 7.40078 22.4322C8.3349 23.1267 9.46283 23.5117 10.6267 23.5333C9.46997 24.4418 8.14556 25.1133 6.72917 25.5096C5.31277 25.9058 3.83216 26.019 2.37199 25.8427C4.92092 27.4819 7.88812 28.3522 10.9187 28.3493C21.176 28.3493 26.7853 19.852 26.7853 12.4827C26.7853 12.2427 26.7787 12 26.768 11.7627C27.8598 10.9736 28.8021 9.99603 29.5507 8.876L29.5493 8.87467Z"
+            fill="#A30000"
+          />
+        </symbol>
+        <symbol
+          id="icon-github"
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          fill="none"
+        >
+          <path
+            d="M16 0C7.15986 0 3.05176e-05 7.26871 3.05176e-05 16.2433C3.05176e-05 23.877 5.15952 30.2125 12.1205 31.9986C12.0402 31.7954 12.0007 31.5106 12.0007 31.2272V28.4652H10.0004C8.92054 28.4652 7.91969 27.9786 7.47986 27.0842C6.95969 26.1096 6.87935 24.6069 5.55986 23.6724C5.15952 23.3475 5.47952 23.0226 5.91935 23.0627C6.75952 23.306 7.43901 23.8756 8.07901 24.7271C8.71901 25.5801 8.99952 25.7833 10.1992 25.7833C10.7588 25.7833 11.6385 25.7432 12.4392 25.6202C12.879 24.4825 13.6388 23.4678 14.5593 22.9812C9.19969 22.3314 6.63969 19.6509 6.63969 15.9959C6.63969 14.4116 7.31918 12.9089 8.43986 11.6095C8.08037 10.3501 7.59969 7.75117 8.60054 6.73648C11.0012 6.73648 12.4405 8.32072 12.8 8.72577C13.9997 8.31934 15.3205 8.07603 16.6795 8.07603C18.0793 8.07603 19.3594 8.31934 20.559 8.72577C20.9185 8.31934 22.3592 6.73648 24.7585 6.73648C25.7185 7.71108 25.2787 10.3501 24.8783 11.6095C25.999 12.8688 26.639 14.4116 26.639 15.9959C26.639 19.6509 24.1185 22.3314 18.7997 22.8996C20.2799 23.671 21.3202 25.8635 21.3202 27.4878V31.1871C21.3202 31.3088 21.2807 31.4304 21.2807 31.5521C27.52 29.3596 32 23.3503 32 16.2433C32 7.26871 24.8402 0 16 0Z"
+            fill="#A30000"
+          />
+        </symbol>
+        <symbol
+          id="icon-linkedin"
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          fill="none"
+        >
+          <path
+            d="M3.05176e-05 3.71715C3.05176e-05 2.63969 0.360401 1.7508 1.08111 1.05049C1.80182 0.350142 2.73878 -1.52588e-05 3.89192 -1.52588e-05C5.02449 -1.52588e-05 5.94082 0.344744 6.64096 1.03433C7.36167 1.74544 7.72204 2.67201 7.72204 3.81412C7.72204 4.84846 7.37198 5.71039 6.67184 6.39997C5.95113 7.11108 5.00389 7.46664 3.83015 7.46664H3.79926C2.66669 7.46664 1.75036 7.11108 1.05022 6.39997C0.350085 5.68886 3.05176e-05 4.79458 3.05176e-05 3.71715ZM0.401575 31.9999V10.408H7.25872V31.9999H0.401575ZM11.0579 31.9999H17.9151V19.9434C17.9151 19.1892 17.9975 18.6073 18.1622 18.1979C18.4505 17.4653 18.8881 16.8457 19.4749 16.3394C20.0618 15.8329 20.798 15.5798 21.6834 15.5798C23.9897 15.5798 25.1429 17.2067 25.1429 20.4606V31.9999H32V19.6202C32 16.4309 31.2793 14.0121 29.8379 12.3636C28.3964 10.7151 26.4917 9.89088 24.1236 9.89088C21.4672 9.89088 19.3977 11.0868 17.9151 13.4788V13.5434H17.8842L17.9151 13.4788V10.408H11.0579C11.0991 11.0976 11.1197 13.2417 11.1197 16.8404C11.1197 20.439 11.0991 25.4922 11.0579 31.9999Z"
+            fill="#A30000"
+          />
+        </symbol>
+        <symbol
+          id="icon-search"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path
+            d="M17.0258 15.8475L20.595 19.4158L19.4158 20.595L15.8475 17.0258C14.5198 18.0902 12.8683 18.6691 11.1667 18.6667C7.02666 18.6667 3.66666 15.3067 3.66666 11.1667C3.66666 7.02667 7.02666 3.66667 11.1667 3.66667C15.3067 3.66667 18.6667 7.02667 18.6667 11.1667C18.6691 12.8683 18.0902 14.5198 17.0258 15.8475ZM15.3542 15.2292C16.4118 14.1416 17.0024 12.6837 17 11.1667C17 7.94333 14.3892 5.33333 11.1667 5.33333C7.94333 5.33333 5.33333 7.94333 5.33333 11.1667C5.33333 14.3892 7.94333 17 11.1667 17C12.6837 17.0024 14.1416 16.4118 15.2292 15.3542L15.3542 15.2292V15.2292Z"
+            fill="#FCFCFC"
+          />
+        </symbol>
+        <symbol
+          id="icon-arrow"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path d="M16 12L10 18V6L16 12Z" fill="#FCFCFC" />
+        </symbol>
+        <symbol
+          id="icon-delete"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+        >
+          <ellipse
+            cx="7.78379"
+            cy="8.00001"
+            rx="5.18919"
+            ry="5.40541"
+            fill="#2B4162"
+          />
+          <path
+            d="M13.6997 2.33416C10.5797 -0.778055 5.45987 -0.778055 2.33994 2.33416C-0.779981 5.44638 -0.779981 10.5536 2.33994 13.6658C5.45987 16.7781 10.4997 16.7781 13.6197 13.6658C16.7396 10.5536 16.8196 5.44638 13.6997 2.33416V2.33416ZM10.2598 11.3516L8.01981 9.11721L5.77986 11.3516L4.65989 10.2344L6.89983 8L4.65989 5.76559L5.77986 4.64838L8.01981 6.88279L10.2598 4.64838L11.3797 5.76559L9.13978 8L11.3797 10.2344L10.2598 11.3516V11.3516Z"
+            fill="#A30000"
+          />
+        </symbol>
+        <symbol
+          id="icon-refresh"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path
+            d="M5.49659 4.75925C9.0399 1.5541 14.3426 1.50509 17.9349 4.4309L15.0875 4.53872C14.72 4.55342 14.4357 4.85727 14.4504 5.22484C14.4651 5.5826 14.7592 5.86195 15.1121 5.86195C15.1219 5.86195 15.1268 5.86195 15.1366 5.86195L19.5081 5.70022C19.8659 5.68551 20.1452 5.39636 20.1452 5.0386V4.98959C20.1452 4.97979 20.1452 4.97489 20.1452 4.96509V4.96019L19.9835 0.637641C19.9688 0.270077 19.66 -0.0141722 19.2974 0.000530298C18.9298 0.0152328 18.6456 0.319085 18.6603 0.686649L18.7632 3.39682C16.9842 1.94127 14.7935 1.09832 12.4509 0.9807C9.54959 0.833675 6.76101 1.82855 4.60954 3.77908C1.64943 6.45985 0.39481 10.5374 1.33577 14.4188C1.40929 14.7227 1.67883 14.9236 1.97778 14.9236C2.03169 14.9236 2.0807 14.9187 2.13461 14.904C2.48747 14.8158 2.70801 14.458 2.61979 14.1052C1.79645 10.6942 2.89424 7.11166 5.49659 4.75925Z"
+            fill="#FCFCFC"
+          />
+          <path
+            d="M22.6643 9.58169C22.5761 9.22882 22.2183 9.00829 21.8654 9.0965C21.5126 9.18472 21.292 9.54248 21.3803 9.89534C22.2085 13.3063 21.1058 16.8888 18.5035 19.2412C16.6754 20.8928 14.3818 21.7064 12.098 21.7064C9.91716 21.7064 7.74118 20.9663 5.98668 19.5059L8.86838 19.2461C9.23104 19.2118 9.50059 18.8933 9.46628 18.5257C9.43198 18.1582 9.11342 17.8935 8.74586 17.9278L4.389 18.3199C4.02634 18.3542 3.75679 18.6727 3.7911 19.0403L4.18317 23.3972C4.21257 23.7402 4.50172 24 4.83988 24C4.85948 24 4.87909 24 4.89869 23.9951C5.26135 23.9608 5.5309 23.6422 5.49659 23.2746L5.26135 20.6233C7.04036 22.0641 9.22124 22.9022 11.5491 23.0198C11.7354 23.0296 11.9216 23.0345 12.1029 23.0345C14.8033 23.0345 17.3714 22.0445 19.3905 20.2214C22.3506 17.5407 23.6052 13.4681 22.6643 9.58169Z"
+            fill="#FCFCFC"
+          />
+        </symbol>
+      </defs>
+    </svg>
+
+    <header class="header">
+      <a href="index.html"><h1>Super Hero</h1></a>
+      <a href="https://superheroapi.com/ids.html" target="_blank">
+        <button class="header__button" id="allHerosButton">
+          Tous les Héros
+        </button>
+      </a>
+    </header>
+    <main>
+      <section class="search">
+        <input
+          type="text"
+          name="nameHero"
+          placeholder="batman, james bond, one punch man"
+          id="searchInput"
+        />
+        <button class="search__button" id="searchButton">
+          <svg class="svgBis">
+            <use href="#icon-search"></use>
+          </svg>
+        </button>
+      </section>
+      <section class="card">
+        <div class="card__img" id="imgHero">
+          <div class="card__containerLogo">
+            <a href="https://twitter.com/quentin_trouve" target="_blank">
+              <svg class="svg">
+                <use href="#icon-twitter"></use>
+              </svg>
+            </a>
+            <a href="https://github.com/quentintrouve" target="_blank">
+              <svg class="svg">
+                <use href="#icon-github"></use>
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/quentintrouve/"
+              target="_blank"
+            >
+              <svg class="svg">
+                <use href="#icon-linkedin"></use>
+              </svg>
+            </a>
+          </div>
+          <img
+            src="./assets/presentation.svg"
+            alt="batman"
+            class="card__mainImg"
+          />
+          <button class="card__imgButton" id="imgButtonHero">
+            <svg class="svgBis svg--arrow">
+              <use href="#icon-arrow"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="card__content card__content--presentation">
+          <div class="card__blocTitle">
+            <h2>Présentation</h2>
+          </div>
+          <p class="card__text">
+            Crée une team de 4 Supers Héros et combine leurs caractéristiques
+            pour créer ta Team.
+          </p>
+          <p>
+            Met le Dieu Odin pour une Team plus puissance ou alors le célèbre
+            agent secret 007 pour une Team plus smart..
+          </p>
+          <p>A toi d’en décider !</p>
+          <p>
+            Pour commencer, fait ta première recherche en tapant le nom de l'un
+            de ces
+            <a href="https://superheroapi.com/ids.html" target="_blank"
+              >HÉROS</a
+            >
+          </p>
+        </div>
+        <div class="card__content card__content--hero">
+          <div class="card__blocTitle">
+            <h2 id="name">Ton Héro</h2>
+            <p id="id">#000</p>
+          </div>
+          <h3>Identité</h3>
+          <div class="card__caracteristic">
+            <ul>
+              <li>Nom :</li>
+              <li>Race :</li>
+              <li>Poids :</li>
+            </ul>
+            <ul>
+              <li id="realName"></li>
+              <li id="race"></li>
+              <li id="poids"></li>
+            </ul>
+          </div>
+          <h3>Combat</h3>
+          <div class="card__caracteristic">
+            <ul>
+              <li>Intelligence :</li>
+              <li>Force :</li>
+              <li>Vitesse :</li>
+              <li>Puissance :</li>
+              <li>Combat :</li>
+            </ul>
+            <ul class="card__properties">
+              <li id="intelligence"></li>
+              <li id="force"></li>
+              <li id="vitesse"></li>
+              <li id="puissance"></li>
+              <li id="combat"></li>
+            </ul>
+          </div>
+          <button class="mainButton mainButton--card" id="addButton">
+            Ajouter à ma Team
+          </button>
+        </div>
+      </section>
+      <section class="card card--team">
+        <div class="card__img card__img--team" id="imgTeam">
+          <div class="card__imgTeam">
+            <img src="" alt="" class="imgHero" id="imgHero1" />
+            <img src="" alt="" class="imgHero" id="imgHero2" />
+            <img src="" alt="" class="imgHero" id="imgHero3" />
+            <img src="" alt="" class="imgHero" id="imgHero4" />
+          </div>
+          <button class="card__imgButton" id="imgButtonTeam">
+            <svg class="svgBis svg--arrow">
+              <use href="#icon-arrow"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="card__content card__content--team">
+          <div class="card__blocTitle">
+            <h2>Ma Team</h2>
+          </div>
+          <h3>Identité</h3>
+          <div class="card__caracteristic">
+            <ul>
+              <li>Nom :</li>
+              <li>Nom :</li>
+              <li>Nom :</li>
+              <li>Nom :</li>
+            </ul>
+            <ul id="heroNameTeam"></ul>
+          </div>
+          <h3>Combat</h3>
+          <div class="card__caracteristic">
+            <ul>
+              <li>Intelligence :</li>
+              <li>Force :</li>
+              <li>Vitesse :</li>
+              <li>Puissance :</li>
+              <li>Combat :</li>
+            </ul>
+            <ul class="card__properties">
+              <li class="card__valuesTeam" id="intelligenceTeam">0</li>
+              <li class="card__valuesTeam" id="forceTeam">0</li>
+              <li class="card__valuesTeam" id="vitesseTeam">0</li>
+              <li class="card__valuesTeam" id="puissanceTeam">0</li>
+              <li class="card__valuesTeam" id="combatTeam">0</li>
+            </ul>
+          </div>
+          <button class="mainButton mainButton--card" id="refreshButton">
+            Rafraîchir ma Team
+          </button>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__containerLogo">
+        <a href="https://twitter.com/quentin_trouve" target="_blank">
+          <svg class="svg">
+            <use href="#icon-twitter"></use>
+          </svg>
+        </a>
+        <a href="https://github.com/quentintrouve" target="_blank">
+          <svg class="svg svgGithub">
+            <use href="#icon-github"></use>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/quentintrouve/" target="_blank">
+          <svg class="svg">
+            <use href="#icon-linkedin"></use>
+          </svg>
+        </a>
+      </div>
+      <p class="footer__credits">
+        Par Quentin Trouvé avec
+        <a class="footer__link" href="https://superheroapi.com/" target="_blank"
+          >SuperHero API</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>

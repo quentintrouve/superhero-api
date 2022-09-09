@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.svg {
+  width: $bigSvg;
+  height: $bigSvg;
+  cursor: pointer;
+}
+
+.svgBis {
+  width: $smallSvg;
+  height: $smallSvg;
+}
+
+.svg--arrow {
+  transform: rotate(0deg);
+  transition: transform 0.2s ease-in;
+
+  &.is-rotate {
+    transform: rotate(180deg);
+  }
+}
+
+body {
+  background-color: $mainBgColor;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+main {
+  width: 100%;
+  padding: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+a,
+button {
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+// TITLE
+
+h1 {
+  font-family: $heroFamily;
+  font-size: 32px;
+  color: $textColor;
+  transform: translateY(2px);
+}
+
+h2 {
+  font-family: $textFamily;
+  font-size: $titleFontSize;
+  font-weight: $subtitleFontWeight;
+  color: $textColor;
+}
+
+h3 {
+  position: relative;
+  font-family: $textFamily;
+  font-size: $subtitleFontSize;
+  font-weight: $subtitleFontWeight;
+  text-transform: uppercase;
+  color: $textColor;
+  margin: 16px 0 24px 0;
+}
+
+h3::before {
+  content: "";
+  width: 56px;
+  height: 4px;
+  position: absolute;
+  bottom: -0.1rem;
+  left: 2rem;
+  background-color: $secondColor;
+  border-radius: $radius;
+}

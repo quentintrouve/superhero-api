@@ -1,0 +1,39 @@
+// COLORS
+
+$mainBgColor: rgba(43, 65, 98, 0.85);
+$secondBgColor: rgb(43, 65, 98);
+
+$actionColor: rgb(163, 0, 0);
+$secondColor: rgb(250, 159, 66);
+
+$textColor: rgb(252, 252, 252);
+
+// FONTS
+
+$heroFamily: "Justice League";
+$textFamily: "Nunito";
+
+$titleFontSize: 18px;
+$titleFontWeight: 900;
+
+$subtitleFontSize: 16px;
+$subtitleFontWeight: 700;
+
+$textFontSize: 14px;
+$textFontWeight: 400;
+
+// SHADOW
+
+$boxShadow: 6px 6px 6px rgba(0, 0, 0, 0.4);
+$inputShadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+  inset 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+// BORDER
+
+$border: 1px solid $actionColor;
+$radius: 10px;
+
+// SVG
+
+$bigSvg: 32px;
+$smallSvg: 24px;

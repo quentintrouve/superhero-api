@@ -1,0 +1,30 @@
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.footer__containerLogo {
+  margin-bottom: 8px;
+}
+
+.footer__credits {
+  margin-bottom: 4px;
+  font-family: $textFamily;
+  font-size: 8px;
+  font-weight: $textFontWeight;
+  color: $textColor;
+}
+
+.footer__link {
+  color: $secondColor;
+  outline: none;
+  font-size: 10px;
+}
+
+.svgGithub {
+  margin: 0 16px;
+}
